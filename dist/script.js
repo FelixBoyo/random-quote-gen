@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function(){
     const url = 'https://type.fit/api/quotes';
     
@@ -33,4 +34,15 @@ document.addEventListener('DOMContentLoaded', function(){
     newQuoteBtn.addEventListener('click', displayQuote);
     
     displayQuote();
+});
+
+const tweetButton = document.getElementById('tweet-button');
+tweetButton.addEventListener('click', function() {
+
+    const quoteText = document.getElementById('quote-text').textContent;
+    const quoteAuthor = document.getElementById('quote-author').textContent;
+
+    const tweetURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${quoteText}" - ${quoteAuthor}`)}`;
+    
+    window.open(tweetURL, '_blank');
 });
